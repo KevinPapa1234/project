@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+
+    <button onclick="guess = 'heads'; playGame(guess); document.querySelector('.js-choice').innerHTML = 'You chose heads';">
+        heads
+    </button>
+    <button onclick="guess = 'tails'; playGame(guess); document.querySelector('.js-choice').innerHTML = 'You chose tails';">
+        tails
+    </button>
+    <button onclick="
+            if (score.wins !== 0 || score.losses !== 0) {
+            score = { wins: 0, losses: 0 };
+            console.log('Score has been reset');
+            localStorage.removeItem('score')
+        }
+        document.querySelector('.js-choice').style.display = 'none';
+    ">
+        reset
+    </button>
+    <p class = 'js-choice'></p>
+
+    <script>
+      let score = JSON.parse(localStorage.getItem('score')) || {wins: 0, losses: 0}
+      function playGame(guess) {
+        const randomNumber = Math.random();
+        const result = randomNumber < 0.5 ? 'heads' : 'tails';
+        console.log(guess === result ? 'You win!' : 'You lose!');
+        if (guess === result) {
+            score.wins += 1
+        } else {
+            score.losses +=1
+        }
+        
+        console.log(score)
+        localStorage.setItem('score', JSON.stringify(score))
+    }  
+
+    
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Projects</title>
+    <style>
+      
+    </style>
+  </head>
+  <body>
+   
+
+    <script>
+      function arraySwap(arr){
+        let temp = arr[0];
+        arr[0] = arr[arr.length - 1];
+        arr[arr.length - 1] =  temp;
+
+        console.log(arr);
+      }
+      arraySwap([1, 20, 22, 24, 5]);
+
+      function addArray(arr1,arr2) {
+        const result = [];
+        
+        for(let i = 0; i < Math.max(arr1.length,arr2.length); i++){
+            const val1 = arr1[i] ?? 0;
+            const val2 = arr2[i] ?? 0;
+            result.push(val1 + val2);
+        }
+        return result
+      }
+      console.log(addArray([1,2,4,3],[2,3,4]))
+
+      function minMax(arr) {
+            if (arr.length === 0) {
+                return { min: null, max: null };
+            }
+
+            let min = arr[0];
+            let max = arr[0];
+
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < min) min = arr[i];
+                if (arr[i] > max) max = arr[i];
+            }
+
+            return { min, max };
+        }
+        console.log(minMax([]));     
+        console.log(minMax([3]));      
+        console.log(minMax([1, 5, -2])); 
+
+
+
+    </script>
+  </body>
+</html>
